@@ -1,0 +1,17 @@
+<h3>{{title}}</h3>
+
+Username:
+<br>
+
+<mat-form-field class="example-full-width">
+    <input matInput  type="text" [(ngModel)]="usuario.username" >
+</mat-form-field>
+
+<br>
+
+Password: <br>
+<mat-form-field class="example-full-width">
+    <input matInput  type="password" [(ngModel)]="usuario.password" >
+</mat-form-field>
+
+<button mat-raised-button color="primary" (click)="login(usuario)">Logearse</button>

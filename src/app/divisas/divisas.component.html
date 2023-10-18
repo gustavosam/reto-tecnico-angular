@@ -1,0 +1,31 @@
+<div class="centrado">
+  
+<mat-form-field>
+  <mat-select [(value)]="divisaSelecionada">
+    <mat-option *ngFor="let divisa of divisas" [value]="divisa">{{divisa.currencyOrigin + " - " + divisa.currencyDestination}}</mat-option>
+  </mat-select>
+</mat-form-field>
+
+<br>
+
+<mat-form-field class="example-full-width">
+  <input matInput  type="number" [(ngModel)]="monto" >
+</mat-form-field>
+
+<br>
+
+<button mat-raised-button color="primary" (click)="conversionDivisas(divisaSelecionada)">Convertir</button>
+
+
+<p> Divisa seleccionada: {{ divisaSelecionada ? (divisaSelecionada.currencyOrigin + " - " + divisaSelecionada.currencyDestination ): '' }}</p>
+
+
+<mat-list role="list" *ngIf="divisaConvertida">
+  <mat-list-item role="listitem">Moneda Origen: {{divisaConvertida ? divisaConvertida.currencyOrigin : ''}}</mat-list-item>
+  <mat-list-item role="listitem">Moneda Destino: {{divisaConvertida ? divisaConvertida.currencyDestination : ''}}</mat-list-item>
+  <mat-list-item role="listitem">Monto: {{divisaConvertida ? divisaConvertida.amount : ''}}</mat-list-item>
+  <mat-list-item role="listitem">Tasa de cambio: {{divisaConvertida ? divisaConvertida.amountRate : ''}}</mat-list-item>
+  <mat-list-item role="listitem">Resultado cambio divisa: {{divisaConvertida ? divisaConvertida.totalAmount : ''}}</mat-list-item>
+</mat-list>
+
+</div>
